@@ -15,7 +15,8 @@ const NewCar = (props) => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
 
-  function handleSubmit() {
+  function handleSubmit(evt) {
+    evt.preventDefault()
     props.handleAddCar(formData)
   }
 

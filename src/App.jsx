@@ -16,10 +16,14 @@ import './App.css'
 
 function App() {
   const [cars, setCars] = useState([])
+  const navigate = useNavigate()
 
   function handleAddCar(carFormData) {
+    // API call to back end
+    // take response and add the new car into state
     const newCarsArray = [...cars, carFormData]
     setCars(newCarsArray)
+    navigate('/')
   }
 
   return (
