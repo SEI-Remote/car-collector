@@ -1,7 +1,15 @@
+import './NewCar.css'
+
 const NewCar = (props) => {
   return (
     <>
-      <h1>Add a car!</h1>
+      <div className="new-car-container">
+        <h1>Add a car!</h1>
+        <form>
+          <input type="text" name="make" placeholder="Make"/>
+          <input type="text" name="model" placeholder="Model"/>
+        </form>
+      </div>
     </>
   )
 }
