@@ -27,7 +27,10 @@ function App() {
       <NavBar  />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/cars/new" element={<NewCar />} />
+        <Route 
+          path="/cars/new" 
+          element={<NewCar handleAddCar={handleAddCar} />} 
+        />
       </Routes>
     </>
   )
