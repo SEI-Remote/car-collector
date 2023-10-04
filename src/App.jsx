@@ -5,6 +5,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom'
 // pages
 import Landing from './pages/Landing/Landing'
 import NewCar from './pages/NewCar/NewCar'
+import CarList from './pages/CarList/CarList'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -23,7 +24,7 @@ function App() {
     // take response and add the new car into state
     const newCarsArray = [...cars, carFormData]
     setCars(newCarsArray)
-    navigate('/')
+    navigate('/cars')
   }
 
   return (
@@ -34,6 +35,10 @@ function App() {
         <Route 
           path="/cars/new" 
           element={<NewCar handleAddCar={handleAddCar} />} 
+        />
+        <Route 
+          path="/cars" 
+          element={<CarList cars={cars} />} 
         />
       </Routes>
     </>

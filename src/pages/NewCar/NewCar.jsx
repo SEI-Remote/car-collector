@@ -1,6 +1,7 @@
 import './NewCar.css'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { SketchPicker } from 'react-color'
 
 const NewCar = (props) => {
   const [formData, setFormData] = useState({
@@ -8,7 +9,7 @@ const NewCar = (props) => {
     make: '',
     model: '',
     year: '',
-    color: ''
+    color: '#000000'
   })
 
   function handleChange(evt) {
@@ -18,6 +19,10 @@ const NewCar = (props) => {
   function handleSubmit(evt) {
     evt.preventDefault()
     props.handleAddCar(formData)
+  }
+
+  function handleChangeComplete(color) {
+    setFormData({...formData, color: color.hex})
   }
 
   return (
@@ -46,12 +51,9 @@ const NewCar = (props) => {
             name="year" 
             placeholder="Year"
           />
-          <input 
-            onChange={handleChange}
-            value={formData.color}
-            type="text" 
-            name="color" 
-            placeholder="Color"
+          <SketchPicker
+            color={formData.color}
+            onChangeComplete={handleChangeComplete}
           />
           <button type="submit">Add Car 🏎️</button>
         </form>
