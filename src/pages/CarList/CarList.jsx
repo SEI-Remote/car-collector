@@ -7,7 +7,11 @@ const CarList = (props) => {
       <div className="car-list-container">
         <h1>All Cars</h1>
         {props.cars.map(car => 
-          <Car key={car._id} car={car} />
+          <Car 
+            key={car._id} 
+            car={car} 
+            handleDeleteCar={props.handleDeleteCar}
+          />
         )}
       </div>
     </>

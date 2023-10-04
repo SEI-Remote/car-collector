@@ -20,11 +20,14 @@ function App() {
   const navigate = useNavigate()
 
   function handleAddCar(carFormData) {
-    // API call to back end
-    // take response and add the new car into state
     const newCarsArray = [...cars, carFormData]
     setCars(newCarsArray)
     navigate('/cars')
+  }
+
+  function handleDeleteCar(carId) {
+    const newCarsArray = cars.filter(car => car._id !== carId)
+    setCars(newCarsArray)
   }
 
   return (
@@ -38,7 +41,7 @@ function App() {
         />
         <Route 
           path="/cars" 
-          element={<CarList cars={cars} />} 
+          element={<CarList cars={cars} handleDeleteCar={handleDeleteCar} />}
         />
       </Routes>
     </>
